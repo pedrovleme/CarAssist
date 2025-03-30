@@ -1,6 +1,5 @@
-// Inicialização do Swiper para o banner
 document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.swiper', {
+    new Swiper('.swiper', {
         loop: true,
         pagination: {
             el: '.swiper-pagination',
@@ -12,14 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
-    // Smooth scroll para links da navbar
     document.querySelectorAll('.nav-link').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
     });
 });
