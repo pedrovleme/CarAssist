@@ -1,4 +1,3 @@
-/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,7 +11,6 @@ body {
 .btn-whatsapp {
     background-color: #25D366;
     color: white;
-    font-weight: bold;
 }
 
 .btn-whatsapp:hover {
@@ -22,27 +20,32 @@ body {
 /* Banner */
 .banner-wrap {
     position: relative;
-    height: 100vh;
+    min-height: 50vh; /* Altura mínima para telas pequenas */
+    max-height: 70vh; /* Limita a altura em telas grandes */
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem se ajuste sem distorcer */
 }
 
 .swiper-slide {
     position: relative;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-text {
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -52,14 +55,30 @@ body {
     .banner-text p {
         font-size: 1rem;
     }
+    .banner-wrap {
+        min-height: 40vh;
+        max-height: 60vh;
+    }
 }
 
 /* Seções */
 section {
     padding: 60px 0;
+    position: relative; /* Garante que as seções fiquem no fluxo normal */
+    z-index: 1; /* Garante que as seções fiquem acima do banner, se necessário */
 }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+#produtos {
+    margin-top: 20px; /* Espaçamento adicional para evitar sobreposição */
+}
+
+/* Responsividade */
+@media (min-width: 992px) {
+    .banner-wrap {
+        min-height: 50vh;
+        max-height: 70vh;
+    }
+    #produtos {
+        margin-top: 40px; /* Ajuste maior para telas grandes */
+    }
 }
